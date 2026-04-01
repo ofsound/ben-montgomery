@@ -4,22 +4,24 @@
   "private": true,
   "description": "Block theme workflow for the Ben Montgomery site.",
   "scripts": {
-    "postinstall": "node ./scripts/patch-wp-env-playground.mjs",
-    "wp-env": "wp-env",
-    "wp-env:patch": "node ./scripts/patch-wp-env-playground.mjs",
-    "playground:start": "npm run wp-env:patch && wp-env start --runtime=playground --update --auto-port",
-    "playground:status": "npm run wp-env:patch && wp-env status",
-    "playground:stop": "npm run wp-env:patch && wp-env stop",
-    "playground:destroy": "npm run wp-env:patch && wp-env destroy",
-    "wp:theme:activate": "./bin/wp-local theme activate ben-montgomery",
-    "wp:plugin:list": "./bin/wp-local plugin list",
+    "playground:start": "./scripts/playground-server.sh start",
+    "playground:status": "./scripts/playground-server.sh status",
+    "playground:stop": "./scripts/playground-server.sh stop",
+    "playground:destroy": "./scripts/playground-server.sh destroy",
+    "mcp:plugin:install": "./scripts/install-wordpress-mcp.sh",
+    "mcp:plugin:deps": "composer install --working-dir ./tools/wordpress-mcp-adapter-loader",
+    "mcp:plugin:activate": "./bin/wp-local plugin activate wordpress-mcp-adapter-loader",
     "wp:seed": "./scripts/seed-content.sh",
     "wp:sync-site-editor": "./scripts/sync-site-editor.sh",
-    "lint:php": "php -l functions.php && php -l inc/class-ben-montgomery-site-editor-sync-command.php",
+    "lint": "npm run lint:php && npm run lint:theme-json",
+    "lint:php": "php -l functions.php && php -l inc/class-ben-montgomery-site-editor-sync-service.php && php -l inc/class-ben-montgomery-site-editor-sync-command.php && php -l tools/wordpress-mcp-adapter-loader/wordpress-mcp-adapter-loader.php && php -l tools/wordpress-mcp-adapter-loader/includes/class-ben-montgomery-mcp-abilities.php",
     "lint:theme-json": "node -e \"JSON.parse(require('node:fs').readFileSync('theme.json', 'utf8'))\"",
-    "check": "npm run lint:php && npm run lint:theme-json"
+    "verify:agentic": "./scripts/verify-agentic-flow.sh",
+    "check": "npm run lint && npm run verify:agentic",
+    "verify": "npm run check"
   },
   "devDependencies": {
+    "@wp-playground/cli": "^3.1.15",
     "@wordpress/env": "^11.3.0"
   }
 }

@@ -14,9 +14,6 @@ Tags: full-site-editing, block-patterns, custom-colors, custom-logo, editor-styl
 */
 
 :root {
-  --bm-border-color: var(--wp--preset--color--border);
-  --bm-muted-color: var(--wp--preset--color--muted);
-  --bm-panel-color: var(--wp--preset--color--canvas);
   --bm-shadow: 0 20px 45px rgba(28, 27, 25, 0.08);
 }
 
@@ -24,23 +21,12 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
-  background:
-    radial-gradient(circle at top right, rgba(184, 92, 56, 0.1), transparent 28%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.4), transparent 18rem),
-    var(--wp--preset--color--base);
-}
-
 .wp-site-blocks > * + * {
   margin-block-start: 0;
 }
 
-.bm-site-header {
-  border-bottom: 1px solid var(--bm-border-color);
-}
-
 .bm-section-label {
-  color: var(--bm-muted-color);
+  color: var(--wp--preset--color--muted);
   font-size: var(--wp--preset--font-size--small);
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -53,9 +39,9 @@ body {
 }
 
 .bm-post-card {
-  background: var(--bm-panel-color);
-  border: 1px solid var(--bm-border-color);
-  border-radius: 1.5rem;
+  background: var(--wp--preset--color--canvas);
+  border: 1px solid var(--wp--preset--color--border);
+  border-radius: var(--wp--custom--radius--card);
   box-shadow: var(--bm-shadow);
   height: 100%;
   overflow: hidden;
@@ -72,24 +58,17 @@ body {
   object-fit: cover;
 }
 
-.bm-meta {
-  color: var(--bm-muted-color);
-  font-size: var(--wp--preset--font-size--small);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
 .bm-outline-surface {
-  background: color-mix(in srgb, var(--bm-panel-color) 78%, white);
-  border: 1px solid var(--bm-border-color);
-  border-radius: 1.5rem;
+  background: color-mix(in srgb, var(--wp--preset--color--canvas) 78%, white);
+  border: 1px solid var(--wp--preset--color--border);
+  border-radius: var(--wp--custom--radius--card);
 }
 
 .bm-newsletter-panel {
   background:
     linear-gradient(135deg, rgba(184, 92, 56, 0.12), rgba(34, 77, 102, 0.1)),
-    var(--bm-panel-color);
-  border: 1px solid var(--bm-border-color);
+    var(--wp--preset--color--canvas);
+  border: 1px solid var(--wp--preset--color--border);
   border-radius: 1.75rem;
   box-shadow: var(--bm-shadow);
 }
@@ -106,10 +85,6 @@ body {
   min-height: 50vh;
 }
 
-.wp-block-query-pagination {
-  margin-block-start: var(--wp--preset--spacing--50);
-}
-
 .wp-block-search__inside-wrapper {
   border-radius: 999px;
   overflow: hidden;
@@ -120,4 +95,3 @@ body {
     border-radius: 1.15rem;
   }
 }
-

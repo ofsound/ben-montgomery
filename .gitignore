@@ -1,4 +1,5 @@
 .DS_Store
 node_modules/
 npm-debug.log*
-
+.playground/
+tools/wordpress-mcp-adapter-loader/vendor/

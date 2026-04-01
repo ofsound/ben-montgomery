@@ -50,6 +50,6 @@ add_filter(
 );
 
 if ( defined( 'WP_CLI' ) && WP_CLI ) {
+	require_once BEN_MONTGOMERY_THEME_DIR . '/inc/class-ben-montgomery-site-editor-sync-service.php';
 	require_once BEN_MONTGOMERY_THEME_DIR . '/inc/class-ben-montgomery-site-editor-sync-command.php';
 }
-

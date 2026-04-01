@@ -1,11 +1,19 @@
 #!/bin/zsh
 set -eu
 
-THEME_DIR=$(CDPATH= cd -- "$(dirname "$0")/.." && pwd)
-SITE_ROOT=$(CDPATH= cd -- "$THEME_DIR/../../.." && pwd)
-SITE_BASE=$(CDPATH= cd -- "$THEME_DIR/../../../../.." && pwd)
+SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd -P)
+THEME_DIR=$(CDPATH= cd -- "$SCRIPT_DIR/.." && pwd -P)
+SITE_ROOT=$(CDPATH= cd -- "$THEME_DIR/../../.." && pwd -P)
+SITE_BASE=$(CDPATH= cd -- "$SITE_ROOT/../.." && pwd -P)
 LOCAL_HOME=${LOCAL_HOME:-"$HOME/Library/Application Support/Local"}
-WP_CLI_SCRIPT=${WP_CLI_SCRIPT:-/opt/homebrew/bin/wp}
+
+if [ -z "${WP_CLI_SCRIPT:-}" ]; then
+  if [ -x /opt/homebrew/bin/wp ]; then
+    WP_CLI_SCRIPT=/opt/homebrew/bin/wp
+  else
+    WP_CLI_SCRIPT=$(command -v wp)
+  fi
+fi
 
 if [ -f "$LOCAL_HOME/sites.json" ] && command -v node >/dev/null 2>&1; then
   SITE_ID=$(
@@ -44,9 +52,11 @@ if [ -f "$LOCAL_HOME/sites.json" ] && command -v node >/dev/null 2>&1; then
     PHP_BIN=$(find "$LOCAL_HOME/lightning-services" -maxdepth 5 -path "*php-$PHP_VERSION+*/bin/darwin-arm64/bin/php" -type f | head -n 1)
 
     if [ -n "${PHP_BIN:-}" ] && [ -f "$PHP_INI" ]; then
+      cd "$THEME_DIR"
       exec "$PHP_BIN" -c "$PHP_INI" "$WP_CLI_SCRIPT" --path="$SITE_ROOT" "$@"
     fi
   fi
 fi
 
+cd "$THEME_DIR"
 exec "$WP_CLI_SCRIPT" --path="$SITE_ROOT" "$@"

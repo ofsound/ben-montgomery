@@ -1,0 +1,8 @@
+{
+  "name": "ben/wordpress-mcp-adapter-loader",
+  "description": "Site-level bootstrap for the official WordPress MCP adapter.",
+  "type": "project",
+  "require": {
+    "wordpress/mcp-adapter": "^0.4.1"
+  }
+}

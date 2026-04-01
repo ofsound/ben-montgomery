@@ -11,12 +11,12 @@
         {
           "slug": "base",
           "name": "Base",
-          "color": "#f5f1e8"
+          "color": "#ffffff"
         },
         {
           "slug": "canvas",
           "name": "Canvas",
-          "color": "#fbf8f3"
+          "color": "#ffffff"
         },
         {
           "slug": "contrast",
@@ -57,7 +57,7 @@
       }
     },
     "layout": {
-      "contentSize": "42rem",
+      "contentSize": "50rem",
       "wideSize": "78rem"
     },
     "spacing": {
@@ -273,9 +273,29 @@
           "blockGap": "var:preset|spacing|50"
         }
       },
+      "core/post-date": {
+        "color": {
+          "text": "var:preset|color|muted"
+        },
+        "typography": {
+          "fontSize": "var:preset|font-size|small",
+          "letterSpacing": "0.04em",
+          "textTransform": "uppercase"
+        }
+      },
       "core/post-featured-image": {
         "border": {
           "radius": "var(--wp--custom--radius--card)"
+        }
+      },
+      "core/post-terms": {
+        "color": {
+          "text": "var:preset|color|muted"
+        },
+        "typography": {
+          "fontSize": "var:preset|font-size|small",
+          "letterSpacing": "0.04em",
+          "textTransform": "uppercase"
         }
       },
       "core/pullquote": {
@@ -307,6 +327,11 @@
         }
       },
       "core/query-pagination": {
+        "spacing": {
+          "margin": {
+            "top": "var:preset|spacing|50"
+          }
+        },
         "typography": {
           "fontSize": "var:preset|font-size|small",
           "fontWeight": "600",
@@ -341,4 +366,3 @@
     }
   ]
 }
-

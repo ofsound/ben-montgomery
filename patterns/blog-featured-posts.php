@@ -42,7 +42,7 @@
 
       <!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|40","right":"var:preset|spacing|40","bottom":"0","left":"var:preset|spacing|40"}}},"layout":{"type":"constrained"}} -->
       <div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--40);padding-right:var(--wp--preset--spacing--40);padding-bottom:0;padding-left:var(--wp--preset--spacing--40)">
-        <!-- wp:post-date {"className":"bm-meta"} /-->
+        <!-- wp:post-date /-->
         <!-- wp:post-title {"isLink":true,"fontSize":"x-large"} /-->
         <!-- wp:post-excerpt {"moreText":"Continue reading"} /-->
       </div>
@@ -60,4 +60,3 @@
   <!-- /wp:query -->
 </div>
 <!-- /wp:group -->
-
