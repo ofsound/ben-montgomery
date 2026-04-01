@@ -1,0 +1,41 @@
+<!-- wp:template-part {"slug":"header","tagName":"header","area":"header"} /-->
+
+<!-- wp:group {"tagName":"main","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|70"}}},"layout":{"type":"constrained"}} -->
+<main class="wp-block-group" style="padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--70)">
+  <!-- wp:paragraph {"className":"bm-section-label"} -->
+  <p class="bm-section-label">Search</p>
+  <!-- /wp:paragraph -->
+
+  <!-- wp:query-title {"type":"search","showPrefix":true,"fontSize":"display"} /-->
+
+  <!-- wp:search {"label":"Search site","showLabel":false,"placeholder":"Search posts and pages","width":100,"widthUnit":"%","buttonText":"Search","buttonUseIcon":false,"style":{"spacing":{"margin":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|50"}}}} /-->
+
+  <!-- wp:query {"query":{"perPage":10,"pages":0,"offset":0,"postType":"any","order":"desc","orderBy":"date","inherit":true},"layout":{"type":"constrained"}} -->
+  <div class="wp-block-query">
+    <!-- wp:post-template -->
+    <!-- wp:group {"className":"bm-outline-surface","style":{"spacing":{"padding":{"top":"var:preset|spacing|40","right":"var:preset|spacing|40","bottom":"var:preset|spacing|40","left":"var:preset|spacing|40"},"margin":{"bottom":"var:preset|spacing|40"}}},"layout":{"type":"constrained"}} -->
+    <div class="wp-block-group bm-outline-surface" style="margin-bottom:var(--wp--preset--spacing--40);padding-top:var(--wp--preset--spacing--40);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">
+      <!-- wp:post-title {"isLink":true,"fontSize":"x-large"} /-->
+      <!-- wp:post-excerpt {"moreText":"Open result"} /-->
+    </div>
+    <!-- /wp:group -->
+    <!-- /wp:post-template -->
+
+    <!-- wp:query-pagination {"layout":{"type":"flex","justifyContent":"space-between"}} -->
+    <!-- wp:query-pagination-previous /-->
+    <!-- wp:query-pagination-numbers /-->
+    <!-- wp:query-pagination-next /-->
+    <!-- /wp:query-pagination -->
+
+    <!-- wp:query-no-results -->
+    <!-- wp:paragraph -->
+    <p>No results matched the current search. Try a broader term.</p>
+    <!-- /wp:paragraph -->
+    <!-- /wp:query-no-results -->
+  </div>
+  <!-- /wp:query -->
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer","area":"footer"} /-->
+
