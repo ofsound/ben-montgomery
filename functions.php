@@ -149,3 +149,10 @@ if ( defined( 'WP_CLI' ) && WP_CLI ) {
 	require_once BEN_MONTGOMERY_THEME_DIR . '/inc/class-ben-montgomery-site-editor-sync-service.php';
 	require_once BEN_MONTGOMERY_THEME_DIR . '/inc/class-ben-montgomery-site-editor-sync-command.php';
 }
+
+
+
+add_filter( 'ai1wm_exclude_themes_from_export', function ( $exclude_filters ) {
+    $exclude_filters[] = BEN_MONTGOMERY_THEME_DIR . '/node_modules';
+    return $exclude_filters;
+} );

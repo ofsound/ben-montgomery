@@ -348,14 +348,14 @@ a:hover {
 }
 
 .bm-theme-toggle {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   margin: 0;
   padding: 0;
   vertical-align: middle;
 }
 
 .bm-theme-toggle .wp-block-button__link {
-  align-items: center;
   appearance: none;
   background: color-mix(in srgb, var(--bm-color-surface) 72%, transparent);
   border: 1px solid var(--bm-glass-border);
@@ -363,8 +363,9 @@ a:hover {
   box-sizing: border-box;
   color: transparent;
   cursor: pointer;
-  display: inline-flex;
+  display: inline-block;
   height: 1.75rem;
+  line-height: 1.75rem;
   overflow: hidden;
   padding: 0;
   position: relative;
@@ -393,11 +394,11 @@ a:hover {
   background: color-mix(in srgb, var(--bm-color-surface) 92%, var(--bm-color-text));
   border-radius: 999px;
   box-shadow: 0 1px 2px color-mix(in srgb, var(--wp--custom--color--shadow) 55%, transparent);
+  bottom: 2px;
   color: var(--bm-color-text);
   content: "☀";
   display: flex;
   font-size: 0.9rem;
-  height: calc(100% - 4px);
   left: 2px;
   justify-content: center;
   position: absolute;
@@ -649,10 +650,22 @@ body.admin-bar.home .wp-site-blocks main > .bm-hero:first-child {
   }
 
   .bm-site-header .wp-block-navigation__responsive-container-open {
+    align-items: center;
     border: 1px solid var(--bm-glass-border);
     border-radius: 999px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    line-height: 1;
     min-height: 2.75rem;
     min-width: 2.75rem;
+    padding: 0;
+  }
+
+  .bm-site-header .wp-block-navigation__responsive-container-open svg {
+    display: block;
+    flex-shrink: 0;
+    margin: 0;
   }
 
   .bm-music-grid {
