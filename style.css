@@ -125,10 +125,8 @@ html {
 
 body {
   background:
-    radial-gradient(circle at top left, color-mix(in srgb, var(--bm-color-accent-soft) 85%, transparent) 0, transparent 34%),
-    radial-gradient(circle at top right, color-mix(in srgb, var(--bm-color-accent-strong) 12%, transparent) 0, transparent 28%),
-    linear-gradient(180deg, color-mix(in srgb, var(--bm-color-surface) 45%, transparent), transparent 28%),
-    var(--bm-color-background);
+    radial-gradient(circle at top left, color-mix(in srgb, var(--bm-color-accent-soft) 85%, transparent) 0, transparent 34%), radial-gradient(circle at top right, color-mix(in srgb, var(--bm-color-accent-strong) 12%, transparent) 0, transparent 28%),
+    linear-gradient(180deg, color-mix(in srgb, var(--bm-color-surface) 45%, transparent), transparent 28%), var(--bm-color-background);
   color: var(--bm-color-text);
   transition:
     background-color 180ms ease,
@@ -181,9 +179,7 @@ a:hover {
 .bm-feature-card,
 .bm-music-card,
 .wp-block-search__inside-wrapper {
-  background:
-    linear-gradient(180deg, color-mix(in srgb, var(--bm-glass-highlight) 22%, transparent), transparent 34%),
-    var(--bm-glass-fill);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--bm-glass-highlight) 22%, transparent), transparent 34%), var(--bm-glass-fill);
   border: 1px solid var(--bm-glass-border);
   box-shadow: var(--bm-shadow);
 }
@@ -269,9 +265,7 @@ a:hover {
 }
 
 .bm-feature-card::before {
-  background:
-    radial-gradient(circle at top left, color-mix(in srgb, var(--bm-color-accent-soft) 85%, transparent), transparent 55%),
-    linear-gradient(160deg, color-mix(in srgb, var(--bm-color-surface) 20%, transparent), transparent 60%);
+  background: radial-gradient(circle at top left, color-mix(in srgb, var(--bm-color-accent-soft) 85%, transparent), transparent 55%), linear-gradient(160deg, color-mix(in srgb, var(--bm-color-surface) 20%, transparent), transparent 60%);
   opacity: 0.9;
 }
 
@@ -283,9 +277,7 @@ a:hover {
 }
 
 .bm-newsletter-panel {
-  background:
-    linear-gradient(145deg, color-mix(in srgb, var(--bm-color-accent) 24%, transparent), color-mix(in srgb, var(--bm-color-accent-strong) 18%, transparent)),
-    var(--bm-glass-fill-strong);
+  background: linear-gradient(145deg, color-mix(in srgb, var(--bm-color-accent) 24%, transparent), color-mix(in srgb, var(--bm-color-accent-strong) 18%, transparent)), var(--bm-glass-fill-strong);
   border: 1px solid color-mix(in srgb, var(--bm-color-accent) 18%, var(--bm-glass-border));
   border-radius: calc(var(--wp--custom--radius--card) + 0.2rem);
   box-shadow: var(--bm-shadow-hover);
@@ -295,9 +287,7 @@ a:hover {
 }
 
 .bm-newsletter-panel::before {
-  background:
-    linear-gradient(120deg, transparent 10%, color-mix(in srgb, white 30%, transparent) 35%, transparent 60%),
-    radial-gradient(circle at top right, color-mix(in srgb, var(--bm-color-accent) 30%, transparent), transparent 38%);
+  background: linear-gradient(120deg, transparent 10%, color-mix(in srgb, white 30%, transparent) 35%, transparent 60%), radial-gradient(circle at top right, color-mix(in srgb, var(--bm-color-accent) 30%, transparent), transparent 38%);
   opacity: 0.95;
 }
 
@@ -347,66 +337,81 @@ a:hover {
 }
 
 .bm-theme-toggle {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  vertical-align: middle;
+}
+
+.bm-theme-toggle .wp-block-button__link {
+  align-items: center;
   appearance: none;
   background: color-mix(in srgb, var(--bm-color-surface) 72%, transparent);
   border: 1px solid var(--bm-glass-border);
   border-radius: 999px;
-  color: var(--bm-color-text);
+  box-sizing: border-box;
+  color: transparent;
   cursor: pointer;
-  display: inline-grid;
-  font: inherit;
-  height: 3rem;
-  line-height: 1;
+  display: inline-flex;
+  height: 1.75rem;
+  overflow: hidden;
   padding: 0;
-  place-items: center;
   position: relative;
+  text-indent: -9999px;
   transition:
     background-color 180ms ease,
     border-color 180ms ease,
     box-shadow 180ms ease,
     transform 180ms ease;
-  width: 3rem;
+  width: 3.25rem;
+  min-height: 1.75rem;
 }
 
-.bm-theme-toggle:hover {
+.bm-theme-toggle .wp-block-button__link:hover {
   background: color-mix(in srgb, var(--bm-color-accent-soft) 78%, var(--bm-color-surface));
   box-shadow: var(--bm-shadow-soft);
   transform: scale(1.04);
 }
 
-.bm-theme-toggle:focus-visible {
+.bm-theme-toggle .wp-block-button__link:focus-visible {
   outline: 2px solid var(--bm-ring);
   outline-offset: 3px;
 }
 
-.bm-theme-toggle__icon {
-  display: grid;
-  grid-area: 1 / 1;
-  place-items: center;
+.bm-theme-toggle .wp-block-button__link::before {
+  align-items: center;
+  background: color-mix(in srgb, var(--bm-color-surface) 92%, var(--bm-color-text));
+  border-radius: 999px;
+  box-shadow: 0 1px 2px color-mix(in srgb, var(--wp--custom--color--shadow) 55%, transparent);
+  color: var(--bm-color-text);
+  content: "☀";
+  display: flex;
+  font-size: 0.9rem;
+  height: calc(100% - 4px);
+  left: 2px;
+  justify-content: center;
+  position: absolute;
+  text-indent: 0;
+  top: 2px;
   transition:
-    opacity 180ms ease,
-    transform 180ms ease;
+    background-color 180ms ease,
+    box-shadow 180ms ease,
+    color 180ms ease,
+    left 180ms ease;
+  width: calc(50% - 3px);
+  z-index: 1;
 }
 
-.bm-theme-toggle__icon svg {
-  display: block;
-  height: 1.15rem;
-  width: 1.15rem;
+.bm-theme-toggle .wp-block-button__link[data-theme-current="dark"]::before {
+  color: var(--bm-color-text);
+  content: "☾";
+  left: calc(50% + 1px);
 }
 
-.bm-theme-toggle__icon--moon {
-  opacity: 0;
-  transform: scale(0.7) rotate(-18deg);
-}
-
-.bm-theme-toggle[data-theme-current="dark"] .bm-theme-toggle__icon--sun {
-  opacity: 0;
-  transform: scale(0.7) rotate(18deg);
-}
-
-.bm-theme-toggle[data-theme-current="dark"] .bm-theme-toggle__icon--moon {
-  opacity: 1;
-  transform: scale(1) rotate(0deg);
+:root[data-theme="dark"] .bm-theme-toggle .wp-block-button__link:not([data-theme-current])::before {
+  color: var(--bm-color-text);
+  content: "☾";
+  left: calc(50% + 1px);
 }
 
 .bm-site-footer {
@@ -443,18 +448,14 @@ a:hover {
 }
 
 .bm-hero {
-  background:
-    linear-gradient(180deg, color-mix(in srgb, var(--bm-color-surface) 30%, transparent), transparent 40%),
-    transparent;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--bm-color-surface) 30%, transparent), transparent 40%), transparent;
   overflow: hidden;
   position: relative;
   text-align: center;
 }
 
 .bm-hero::before {
-  background:
-    radial-gradient(circle at 50% 0%, color-mix(in srgb, var(--bm-color-accent-soft) 90%, transparent), transparent 42%),
-    linear-gradient(135deg, color-mix(in srgb, var(--bm-color-accent-strong) 10%, transparent), transparent 48%);
+  background: radial-gradient(circle at 50% 0%, color-mix(in srgb, var(--bm-color-accent-soft) 90%, transparent), transparent 42%), linear-gradient(135deg, color-mix(in srgb, var(--bm-color-accent-strong) 10%, transparent), transparent 48%);
   opacity: 0.95;
 }
 
@@ -642,8 +643,8 @@ a:hover {
   .bm-post-card,
   .bm-feature-card,
   .bm-newsletter-panel,
-  .bm-theme-toggle,
-  .bm-theme-toggle__icon,
+  .bm-theme-toggle .wp-block-button__link,
+  .bm-theme-toggle .wp-block-button__link::before,
   .wp-element-button {
     animation: none;
     transition: none;

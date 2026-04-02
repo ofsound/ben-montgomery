@@ -1,7 +1,7 @@
 (function () {
-  var storageKey = 'bm-theme-preference';
+  var storageKey = "bm-theme-preference";
   var root = document.documentElement;
-  var mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+  var mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
 
   function getStoredTheme() {
     try {
@@ -22,11 +22,11 @@
   function getResolvedTheme() {
     var storedTheme = getStoredTheme();
 
-    if (storedTheme === 'light' || storedTheme === 'dark') {
+    if (storedTheme === "light" || storedTheme === "dark") {
       return storedTheme;
     }
 
-    return mediaQuery.matches ? 'dark' : 'light';
+    return mediaQuery.matches ? "dark" : "light";
   }
 
   function applyTheme(theme) {
@@ -35,47 +35,68 @@
     updateToggles(theme);
   }
 
+  function getToggles() {
+    return document.querySelectorAll(".bm-theme-toggle .wp-block-button__link");
+  }
+
   function updateToggles(theme) {
-    var toggles = document.querySelectorAll('[data-theme-toggle]');
-    var nextTheme = theme === 'dark' ? 'light' : 'dark';
-    var nextLabel = 'Switch to ' + nextTheme + ' mode';
+    var toggles = getToggles();
+    var isDark = theme === "dark";
 
     toggles.forEach(function (toggle) {
-      toggle.setAttribute('aria-pressed', String(theme === 'dark'));
-      toggle.setAttribute('aria-label', nextLabel);
+      var nextLabel = isDark ? "Switch to light mode" : "Switch to dark mode";
+
+      toggle.setAttribute("role", "switch");
+      toggle.setAttribute("aria-checked", String(isDark));
+      toggle.setAttribute("aria-label", nextLabel);
+      toggle.setAttribute("title", nextLabel);
       toggle.dataset.themeCurrent = theme;
-
-      var label = toggle.querySelector('[data-theme-toggle-label]');
-
-      if (label) {
-        label.textContent = nextLabel;
-      }
     });
   }
 
   function updateHeaderState() {
-    document.querySelectorAll('[data-site-header]').forEach(function (header) {
-      header.classList.toggle('is-scrolled', window.scrollY > 8);
+    document.querySelectorAll(".bm-site-header").forEach(function (header) {
+      header.classList.toggle("is-scrolled", window.scrollY > 8);
     });
   }
 
-  function handleToggleClick() {
-    var nextTheme = getResolvedTheme() === 'dark' ? 'light' : 'dark';
+  function handleToggleClick(event) {
+    if (event) {
+      event.preventDefault();
+    }
+
+    var nextTheme = getResolvedTheme() === "dark" ? "light" : "dark";
 
     setStoredTheme(nextTheme);
     applyTheme(nextTheme);
   }
 
-  document.addEventListener('DOMContentLoaded', function () {
+  function initThemeUi() {
     applyTheme(getResolvedTheme());
     updateHeaderState();
 
-    document.querySelectorAll('[data-theme-toggle]').forEach(function (toggle) {
-      toggle.addEventListener('click', handleToggleClick);
+    getToggles().forEach(function (toggle) {
+      if (toggle.dataset.themeToggleBound === "true") {
+        return;
+      }
+
+      toggle.addEventListener("click", handleToggleClick);
+      toggle.addEventListener("keydown", function (event) {
+        if (event.key === " " || event.key === "Enter") {
+          handleToggleClick(event);
+        }
+      });
+      toggle.dataset.themeToggleBound = "true";
     });
 
-    window.addEventListener('scroll', updateHeaderState, { passive: true });
-  });
+    window.addEventListener("scroll", updateHeaderState, {passive: true});
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initThemeUi);
+  } else {
+    initThemeUi();
+  }
 
   function handleSystemThemeChange() {
     if (getStoredTheme()) {
@@ -85,9 +106,9 @@
     applyTheme(getResolvedTheme());
   }
 
-  if (typeof mediaQuery.addEventListener === 'function') {
-    mediaQuery.addEventListener('change', handleSystemThemeChange);
-  } else if (typeof mediaQuery.addListener === 'function') {
+  if (typeof mediaQuery.addEventListener === "function") {
+    mediaQuery.addEventListener("change", handleSystemThemeChange);
+  } else if (typeof mediaQuery.addListener === "function") {
     mediaQuery.addListener(handleSystemThemeChange);
   }
-}());
+})();

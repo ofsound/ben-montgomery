@@ -82,6 +82,14 @@ add_action(
 	'wp_enqueue_scripts',
 	static function (): void {
 		$script_path = BEN_MONTGOMERY_THEME_DIR . '/assets/js/theme-toggle.js';
+		$style_path  = BEN_MONTGOMERY_THEME_DIR . '/style.css';
+
+		wp_enqueue_style(
+			'ben-montgomery-theme',
+			get_stylesheet_uri(),
+			array(),
+			file_exists( $style_path ) ? (string) filemtime( $style_path ) : null
+		);
 
 		wp_enqueue_style(
 			'ben-montgomery-fonts',

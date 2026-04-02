@@ -1,5 +1,5 @@
 <!-- wp:group {"metadata":{"name":"Site Header"},"align":"wide","className":"bm-site-header","layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignwide bm-site-header" data-site-header>
+<div class="wp-block-group alignwide bm-site-header">
   <!-- wp:group {"className":"bm-site-header__bar","layout":{"type":"flex","justifyContent":"space-between","flexWrap":"wrap","verticalAlignment":"center"}} -->
   <div class="wp-block-group bm-site-header__bar">
     <!-- wp:group {"layout":{"type":"flex","orientation":"vertical"}} -->
@@ -18,22 +18,9 @@
       <!-- wp:navigation-link {"label":"Contact","url":"/contact/","kind":"custom","isTopLevelLink":true} /-->
       <!-- /wp:navigation -->
 
-      <!-- wp:html -->
-      <button class="bm-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to dark mode">
-        <span class="screen-reader-text" data-theme-toggle-label>Switch to dark mode</span>
-        <span class="bm-theme-toggle__icon bm-theme-toggle__icon--sun" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="4.25"></circle>
-            <path d="M12 2.75v2.5M12 18.75v2.5M21.25 12h-2.5M5.25 12h-2.5M18.54 5.46l-1.77 1.77M7.23 16.77l-1.77 1.77M18.54 18.54l-1.77-1.77M7.23 7.23L5.46 5.46"></path>
-          </svg>
-        </span>
-        <span class="bm-theme-toggle__icon bm-theme-toggle__icon--moon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5 8.75 8.75 0 1 0 20.5 14.2z"></path>
-          </svg>
-        </span>
-      </button>
-      <!-- /wp:html -->
+      <!-- wp:button {"url":"#","className":"bm-theme-toggle"} -->
+      <div class="wp-block-button bm-theme-toggle"><a class="wp-block-button__link wp-element-button" href="#">Theme</a></div>
+      <!-- /wp:button -->
     </div>
     <!-- /wp:group -->
   </div>

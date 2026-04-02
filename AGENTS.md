@@ -17,6 +17,14 @@
 - If `wp-local` fails in the sandbox, treat that as an execution-context problem first.
 - Confirm the Local site mapping from `~/Library/Application Support/Local/sites.json` and the generated runtime config under `~/Library/Application Support/Local/run/<site-id>/` before concluding that WordPress or MySQL is down.
 
+## Block Markup Safety
+
+- In `templates/*.html`, `parts/*.html`, and block-based pattern markup, do not hand-edit extra attributes onto core block wrapper HTML.
+- Do not add custom `data-*`, ARIA, `role`, or other non-serialized attributes directly inside markup emitted by core blocks such as `core/group`, `core/button`, `core/navigation`, and similar.
+- If a behavior needs custom attributes or runtime state, add it with CSS, JavaScript, block metadata, or a custom block, not by mutating core block wrapper markup in theme files.
+- Before considering a template-part file "safe", ensure it round-trips through WordPress parsing and serialization without changing. Footer-safe is the standard.
+- If a template part shows "unexpected or invalid content" after reset, first suspect hand-written wrapper markup drift before inventing a custom block workaround.
+
 ## File Links In Responses
 
 - In this repo context, prefer bare absolute filesystem paths in prose instead of Markdown file links when you want the app to auto-link a file.

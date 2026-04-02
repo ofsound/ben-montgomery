@@ -19,6 +19,10 @@ Build and maintain this as a file-first block theme.
 - Put design tokens, spacing, typography, colors, layout settings, and block defaults in `theme.json` before adding CSS or PHP.
 - Use CSS only for styling that `theme.json` and block markup cannot express cleanly.
 - Keep `functions.php` minimal. Add PHP only when the behavior cannot live in `theme.json`, block markup, or block metadata.
+- Treat core block HTML in `templates/*.html` and `parts/*.html` as serialized output, not freeform markup.
+- Never hand-write extra attributes onto core block wrapper elements in theme files. That includes custom `data-*`, `role`, ARIA, or other attributes that WordPress will not reproduce when it re-serializes the block.
+- If a template or template part must survive Site Editor reset and recovery, it must round-trip cleanly through `parse_blocks()` and `serialize_blocks()` with no structural drift.
+- For interactive behavior in template parts, prefer CSS classes plus JavaScript enhancement over mutating serialized core block markup.
 - Build blog/archive layouts with core blocks such as `Query Loop` and `Post Template`.
 - Use patterns for reusable sections.
 - Use ACF Pro only when native blocks and patterns are no longer a clean fit for the content model.
