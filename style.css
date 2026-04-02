@@ -40,50 +40,75 @@ body {
   color-scheme: dark;
 }
 
-:root[data-theme="light"] body {
-  --wp--preset--color--base: #f8f3ea;
-  --wp--preset--color--canvas: #ffffff;
-  --wp--preset--color--contrast: #1c1b19;
-  --wp--preset--color--muted: #5d5a52;
-  --wp--preset--color--border: #cfc3b0;
-  --wp--preset--color--accent: #b85c38;
-  --wp--preset--color--accent-strong: #224d66;
-  --wp--preset--color--accent-soft: #d9ccb7;
-  --wp--custom--color--background: #f8f3ea;
-  --wp--custom--color--surface: #ffffff;
-  --wp--custom--color--text: #1c1b19;
-  --wp--custom--color--muted: #5d5a52;
-  --wp--custom--color--border: #cfc3b0;
-  --wp--custom--color--accent: #b85c38;
-  --wp--custom--color--accent-strong: #224d66;
-  --wp--custom--color--accent-soft: #d9ccb7;
-  --wp--custom--color--button-background: #1c1b19;
-  --wp--custom--color--button-text: #f8f3ea;
-  --wp--custom--color--shadow: rgba(28, 27, 25, 0.08);
-  --wp--custom--color--shadow-hover: rgba(28, 27, 25, 0.12);
+:root[data-theme] body {
+  --wp--preset--color--base: light-dark(#f8f3ea, #111417);
+  --wp--preset--color--canvas: light-dark(#ffffff, #1a1e22);
+  --wp--preset--color--contrast: light-dark(#1c1b19, #f4ede2);
+  --wp--preset--color--muted: light-dark(#5d5a52, #b7ab98);
+  --wp--preset--color--border: light-dark(#cfc3b0, #4f5861);
+  --wp--preset--color--accent: light-dark(#b85c38, #f28e63);
+  --wp--preset--color--accent-strong: light-dark(#224d66, #8fc8ea);
+  --wp--preset--color--accent-soft: light-dark(#d9ccb7, #2a333b);
+  --wp--custom--color--background: light-dark(#f8f3ea, #111417);
+  --wp--custom--color--surface: light-dark(#ffffff, #1a1e22);
+  --wp--custom--color--text: light-dark(#1c1b19, #f4ede2);
+  --wp--custom--color--muted: light-dark(#5d5a52, #b7ab98);
+  --wp--custom--color--border: light-dark(#cfc3b0, #4f5861);
+  --wp--custom--color--accent: light-dark(#b85c38, #f28e63);
+  --wp--custom--color--accent-strong: light-dark(#224d66, #8fc8ea);
+  --wp--custom--color--accent-soft: light-dark(#d9ccb7, #2a333b);
+  --wp--custom--color--button-background: light-dark(#1c1b19, #f4ede2);
+  --wp--custom--color--button-text: light-dark(#f8f3ea, #111417);
+  --wp--custom--color--shadow: light-dark(rgba(28, 27, 25, 0.08), rgba(0, 0, 0, 0.4));
+  --wp--custom--color--shadow-hover: light-dark(rgba(28, 27, 25, 0.12), rgba(0, 0, 0, 0.55));
 }
 
-:root[data-theme="dark"] body {
-  --wp--preset--color--base: #111417;
-  --wp--preset--color--canvas: #1a1e22;
-  --wp--preset--color--contrast: #f4ede2;
-  --wp--preset--color--muted: #b7ab98;
-  --wp--preset--color--border: #4f5861;
-  --wp--preset--color--accent: #f28e63;
-  --wp--preset--color--accent-strong: #8fc8ea;
-  --wp--preset--color--accent-soft: #2a333b;
-  --wp--custom--color--background: #111417;
-  --wp--custom--color--surface: #1a1e22;
-  --wp--custom--color--text: #f4ede2;
-  --wp--custom--color--muted: #b7ab98;
-  --wp--custom--color--border: #4f5861;
-  --wp--custom--color--accent: #f28e63;
-  --wp--custom--color--accent-strong: #8fc8ea;
-  --wp--custom--color--accent-soft: #2a333b;
-  --wp--custom--color--button-background: #f4ede2;
-  --wp--custom--color--button-text: #111417;
-  --wp--custom--color--shadow: rgba(0, 0, 0, 0.4);
-  --wp--custom--color--shadow-hover: rgba(0, 0, 0, 0.55);
+@supports not (background: light-dark(#000, #fff)) {
+  :root[data-theme="light"] body {
+    --wp--preset--color--base: #f8f3ea;
+    --wp--preset--color--canvas: #ffffff;
+    --wp--preset--color--contrast: #1c1b19;
+    --wp--preset--color--muted: #5d5a52;
+    --wp--preset--color--border: #cfc3b0;
+    --wp--preset--color--accent: #b85c38;
+    --wp--preset--color--accent-strong: #224d66;
+    --wp--preset--color--accent-soft: #d9ccb7;
+    --wp--custom--color--background: #f8f3ea;
+    --wp--custom--color--surface: #ffffff;
+    --wp--custom--color--text: #1c1b19;
+    --wp--custom--color--muted: #5d5a52;
+    --wp--custom--color--border: #cfc3b0;
+    --wp--custom--color--accent: #b85c38;
+    --wp--custom--color--accent-strong: #224d66;
+    --wp--custom--color--accent-soft: #d9ccb7;
+    --wp--custom--color--button-background: #1c1b19;
+    --wp--custom--color--button-text: #f8f3ea;
+    --wp--custom--color--shadow: rgba(28, 27, 25, 0.08);
+    --wp--custom--color--shadow-hover: rgba(28, 27, 25, 0.12);
+  }
+
+  :root[data-theme="dark"] body {
+    --wp--preset--color--base: #111417;
+    --wp--preset--color--canvas: #1a1e22;
+    --wp--preset--color--contrast: #f4ede2;
+    --wp--preset--color--muted: #b7ab98;
+    --wp--preset--color--border: #4f5861;
+    --wp--preset--color--accent: #f28e63;
+    --wp--preset--color--accent-strong: #8fc8ea;
+    --wp--preset--color--accent-soft: #2a333b;
+    --wp--custom--color--background: #111417;
+    --wp--custom--color--surface: #1a1e22;
+    --wp--custom--color--text: #f4ede2;
+    --wp--custom--color--muted: #b7ab98;
+    --wp--custom--color--border: #4f5861;
+    --wp--custom--color--accent: #f28e63;
+    --wp--custom--color--accent-strong: #8fc8ea;
+    --wp--custom--color--accent-soft: #2a333b;
+    --wp--custom--color--button-background: #f4ede2;
+    --wp--custom--color--button-text: #111417;
+    --wp--custom--color--shadow: rgba(0, 0, 0, 0.4);
+    --wp--custom--color--shadow-hover: rgba(0, 0, 0, 0.55);
+  }
 }
 
 body {
@@ -124,7 +149,9 @@ html {
   box-shadow: var(--bm-shadow);
   height: 100%;
   overflow: hidden;
-  transition: transform 180ms ease, box-shadow 180ms ease;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
 }
 
 .bm-post-card:hover {
@@ -144,9 +171,7 @@ html {
 }
 
 .bm-newsletter-panel {
-  background:
-    linear-gradient(135deg, color-mix(in srgb, var(--bm-color-accent) 18%, transparent), color-mix(in srgb, var(--bm-color-accent-strong) 14%, transparent)),
-    var(--bm-color-surface);
+  background: linear-gradient(135deg, color-mix(in srgb, var(--bm-color-accent) 18%, transparent), color-mix(in srgb, var(--bm-color-accent-strong) 14%, transparent)), var(--bm-color-surface);
   border: 1px solid var(--bm-color-border);
   border-radius: 1.75rem;
   box-shadow: var(--bm-shadow);
