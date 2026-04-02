@@ -240,7 +240,7 @@ a:hover {
 }
 
 .bm-post-card .wp-block-post-excerpt__more-link {
-  color: var(--bm-color-accent-strong);
+  color: var(--bm-color-muted);
   font-weight: 600;
 }
 
@@ -361,8 +361,7 @@ a:hover {
   transition:
     background-color 180ms ease,
     border-color 180ms ease,
-    box-shadow 180ms ease,
-    transform 180ms ease;
+    box-shadow 180ms ease;
   width: 3.25rem;
   min-height: 1.75rem;
 }
@@ -370,7 +369,7 @@ a:hover {
 .bm-theme-toggle .wp-block-button__link:hover {
   background: color-mix(in srgb, var(--bm-color-accent-soft) 78%, var(--bm-color-surface));
   box-shadow: var(--bm-shadow-soft);
-  transform: scale(1.04);
+  transform: none;
 }
 
 .bm-theme-toggle .wp-block-button__link:focus-visible {
