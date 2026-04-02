@@ -466,6 +466,12 @@ a:hover {
 
 .bm-hero::before {
   background: radial-gradient(circle at 50% 0%, color-mix(in srgb, var(--bm-color-accent-soft) 90%, transparent), transparent 42%), linear-gradient(135deg, color-mix(in srgb, var(--bm-color-accent-strong) 10%, transparent), transparent 48%);
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 42%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 42%, transparent 100%);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
   opacity: 0.95;
 }
 
@@ -486,6 +492,22 @@ a:hover {
 
 .bm-hero .wp-block-buttons {
   justify-content: center;
+}
+
+body.home .wp-site-blocks main > .bm-hero:first-child {
+  --bm-home-hero-header-offset: 5.75rem;
+  margin-top: calc(-1 * var(--bm-home-hero-header-offset));
+  padding-top: calc(var(--wp--preset--spacing--80) + 60px + var(--bm-home-hero-header-offset));
+}
+
+body.admin-bar.home .wp-site-blocks main > .bm-hero:first-child {
+  padding-top: calc(var(--wp--preset--spacing--80) + 60px + var(--bm-home-hero-header-offset) + 32px);
+}
+
+@media screen and (max-width: 782px) {
+  body.admin-bar.home .wp-site-blocks main > .bm-hero:first-child {
+    padding-top: calc(var(--wp--preset--spacing--80) + 60px + var(--bm-home-hero-header-offset) + 46px);
+  }
 }
 
 .bm-feature-grid > .wp-block-column {

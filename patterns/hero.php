@@ -7,8 +7,8 @@
  * Description: A split hero section for the homepage or feature pages.
  */
 ?>
-<!-- wp:group {"align":"wide","className":"bm-hero","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|70"}}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignwide bm-hero" style="padding-top:var(--wp--preset--spacing--80);padding-bottom:var(--wp--preset--spacing--70)">
+<!-- wp:group {"align":"full","className":"bm-hero","style":{"spacing":{"padding":{"top":"calc(var(--wp--preset--spacing--80) + 60px)","bottom":"var:preset|spacing|70"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull bm-hero" style="padding-top:calc(var(--wp--preset--spacing--80) + 60px);padding-bottom:var(--wp--preset--spacing--70)">
   <!-- wp:group {"className":"bm-hero__content","layout":{"type":"constrained"}} -->
   <div class="wp-block-group bm-hero__content">
     <!-- wp:paragraph {"align":"center","className":"bm-section-label"} -->
