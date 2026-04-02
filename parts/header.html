@@ -1,7 +1,7 @@
-<!-- wp:group {"metadata":{"name":"Site Header"},"style":{"border":{"bottom":{"color":"var:preset|color|border","width":"1px"}},"spacing":{"padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40"}}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group" style="border-bottom-color:var(--wp--preset--color--border);border-bottom-width:1px;padding-top:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--40)">
-  <!-- wp:group {"layout":{"type":"flex","justifyContent":"space-between","flexWrap":"wrap","verticalAlignment":"center"}} -->
-  <div class="wp-block-group">
+<!-- wp:group {"metadata":{"name":"Site Header"},"align":"wide","className":"bm-site-header","layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignwide bm-site-header" data-site-header>
+  <!-- wp:group {"className":"bm-site-header__bar","layout":{"type":"flex","justifyContent":"space-between","flexWrap":"wrap","verticalAlignment":"center"}} -->
+  <div class="wp-block-group bm-site-header__bar">
     <!-- wp:group {"layout":{"type":"flex","orientation":"vertical"}} -->
     <div class="wp-block-group">
       <!-- wp:site-title {"level":0} /-->
@@ -19,9 +19,19 @@
       <!-- /wp:navigation -->
 
       <!-- wp:html -->
-      <button class="bm-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch color theme">
-        <span class="bm-theme-toggle__indicator" aria-hidden="true"></span>
-        <span data-theme-toggle-label>Dark mode</span>
+      <button class="bm-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to dark mode">
+        <span class="screen-reader-text" data-theme-toggle-label>Switch to dark mode</span>
+        <span class="bm-theme-toggle__icon bm-theme-toggle__icon--sun" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4.25"></circle>
+            <path d="M12 2.75v2.5M12 18.75v2.5M21.25 12h-2.5M5.25 12h-2.5M18.54 5.46l-1.77 1.77M7.23 16.77l-1.77 1.77M18.54 18.54l-1.77-1.77M7.23 7.23L5.46 5.46"></path>
+          </svg>
+        </span>
+        <span class="bm-theme-toggle__icon bm-theme-toggle__icon--moon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5 8.75 8.75 0 1 0 20.5 14.2z"></path>
+          </svg>
+        </span>
       </button>
       <!-- /wp:html -->
     </div>

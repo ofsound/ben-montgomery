@@ -11,6 +11,10 @@ if ( ! defined( 'BEN_MONTGOMERY_THEME_URI' ) ) {
 
 require_once BEN_MONTGOMERY_THEME_DIR . '/inc/class-ben-montgomery-music-page.php';
 
+function ben_montgomery_get_font_stylesheet_url(): string {
+	return 'https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap';
+}
+
 /**
  * Emits the stored or system-resolved theme preference before CSS paints.
  */
@@ -42,7 +46,12 @@ function ben_montgomery_print_theme_bootstrap(): void {
 add_action(
 	'after_setup_theme',
 	static function (): void {
-		add_editor_style( 'style.css' );
+		add_editor_style(
+			array(
+				ben_montgomery_get_font_stylesheet_url(),
+				'style.css',
+			)
+		);
 	}
 );
 
@@ -74,12 +83,31 @@ add_action(
 	static function (): void {
 		$script_path = BEN_MONTGOMERY_THEME_DIR . '/assets/js/theme-toggle.js';
 
+		wp_enqueue_style(
+			'ben-montgomery-fonts',
+			ben_montgomery_get_font_stylesheet_url(),
+			array(),
+			null
+		);
+
 		wp_enqueue_script(
 			'ben-montgomery-theme-toggle',
 			BEN_MONTGOMERY_THEME_URI . '/assets/js/theme-toggle.js',
 			array(),
 			file_exists( $script_path ) ? (string) filemtime( $script_path ) : null,
 			true
+		);
+	}
+);
+
+add_action(
+	'enqueue_block_editor_assets',
+	static function (): void {
+		wp_enqueue_style(
+			'ben-montgomery-editor-fonts',
+			ben_montgomery_get_font_stylesheet_url(),
+			array(),
+			null
 		);
 	}
 );

@@ -38,11 +38,11 @@
   function updateToggles(theme) {
     var toggles = document.querySelectorAll('[data-theme-toggle]');
     var nextTheme = theme === 'dark' ? 'light' : 'dark';
-    var nextLabel = nextTheme === 'dark' ? 'Dark mode' : 'Light mode';
+    var nextLabel = 'Switch to ' + nextTheme + ' mode';
 
     toggles.forEach(function (toggle) {
       toggle.setAttribute('aria-pressed', String(theme === 'dark'));
-      toggle.setAttribute('aria-label', 'Switch to ' + nextTheme + ' mode');
+      toggle.setAttribute('aria-label', nextLabel);
       toggle.dataset.themeCurrent = theme;
 
       var label = toggle.querySelector('[data-theme-toggle-label]');
@@ -50,6 +50,12 @@
       if (label) {
         label.textContent = nextLabel;
       }
+    });
+  }
+
+  function updateHeaderState() {
+    document.querySelectorAll('[data-site-header]').forEach(function (header) {
+      header.classList.toggle('is-scrolled', window.scrollY > 8);
     });
   }
 
@@ -62,17 +68,26 @@
 
   document.addEventListener('DOMContentLoaded', function () {
     applyTheme(getResolvedTheme());
+    updateHeaderState();
 
     document.querySelectorAll('[data-theme-toggle]').forEach(function (toggle) {
       toggle.addEventListener('click', handleToggleClick);
     });
+
+    window.addEventListener('scroll', updateHeaderState, { passive: true });
   });
 
-  mediaQuery.addEventListener('change', function () {
+  function handleSystemThemeChange() {
     if (getStoredTheme()) {
       return;
     }
 
     applyTheme(getResolvedTheme());
-  });
+  }
+
+  if (typeof mediaQuery.addEventListener === 'function') {
+    mediaQuery.addEventListener('change', handleSystemThemeChange);
+  } else if (typeof mediaQuery.addListener === 'function') {
+    mediaQuery.addListener(handleSystemThemeChange);
+  }
 }());

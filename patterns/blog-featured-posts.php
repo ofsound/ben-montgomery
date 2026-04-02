@@ -18,7 +18,7 @@
       <!-- /wp:paragraph -->
 
       <!-- wp:heading {"level":2,"fontSize":"xx-large"} -->
-      <h2 class="wp-block-heading has-xx-large-font-size">A Query Loop-first blog section that stays editable.</h2>
+      <h2 class="wp-block-heading has-xx-large-font-size">New writing, notes, and dispatches from the current season.</h2>
       <!-- /wp:heading -->
     </div>
     <!-- /wp:group -->
@@ -42,6 +42,7 @@
 
       <!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|40","right":"var:preset|spacing|40","bottom":"0","left":"var:preset|spacing|40"}}},"layout":{"type":"constrained"}} -->
       <div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--40);padding-right:var(--wp--preset--spacing--40);padding-bottom:0;padding-left:var(--wp--preset--spacing--40)">
+        <!-- wp:post-terms {"term":"category","separator":""} /-->
         <!-- wp:post-date /-->
         <!-- wp:post-title {"isLink":true,"fontSize":"x-large"} /-->
         <!-- wp:post-excerpt {"moreText":"Continue reading"} /-->
