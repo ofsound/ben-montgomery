@@ -11,46 +11,60 @@
         {
           "slug": "base",
           "name": "Base",
-          "color": "#ffffff"
+          "color": "light-dark(#f8f3ea, #111417)"
         },
         {
           "slug": "canvas",
           "name": "Canvas",
-          "color": "#ffffff"
+          "color": "light-dark(#ffffff, #1a1e22)"
         },
         {
           "slug": "contrast",
           "name": "Contrast",
-          "color": "#1c1b19"
+          "color": "light-dark(#1c1b19, #f4ede2)"
         },
         {
           "slug": "muted",
           "name": "Muted",
-          "color": "#5d5a52"
+          "color": "light-dark(#5d5a52, #b7ab98)"
         },
         {
           "slug": "border",
           "name": "Border",
-          "color": "#cfc3b0"
+          "color": "light-dark(#cfc3b0, #4f5861)"
         },
         {
           "slug": "accent",
           "name": "Accent",
-          "color": "#b85c38"
+          "color": "light-dark(#b85c38, #f28e63)"
         },
         {
           "slug": "accent-strong",
           "name": "Accent Strong",
-          "color": "#224d66"
+          "color": "light-dark(#224d66, #8fc8ea)"
         },
         {
           "slug": "accent-soft",
           "name": "Accent Soft",
-          "color": "#d9ccb7"
+          "color": "light-dark(#d9ccb7, #2a333b)"
         }
       ]
     },
     "custom": {
+      "color": {
+        "background": "light-dark(#f8f3ea, #111417)",
+        "surface": "light-dark(#ffffff, #1a1e22)",
+        "text": "light-dark(#1c1b19, #f4ede2)",
+        "muted": "light-dark(#5d5a52, #b7ab98)",
+        "border": "light-dark(#cfc3b0, #4f5861)",
+        "accent": "light-dark(#b85c38, #f28e63)",
+        "accentStrong": "light-dark(#224d66, #8fc8ea)",
+        "accentSoft": "light-dark(#d9ccb7, #2a333b)",
+        "buttonBackground": "light-dark(#1c1b19, #f4ede2)",
+        "buttonText": "light-dark(#f8f3ea, #111417)",
+        "shadow": "light-dark(rgba(28, 27, 25, 0.08), rgba(0, 0, 0, 0.4))",
+        "shadowHover": "light-dark(rgba(28, 27, 25, 0.12), rgba(0, 0, 0, 0.55))"
+      },
       "radius": {
         "card": "1.5rem",
         "pill": "999px"
@@ -193,8 +207,8 @@
   },
   "styles": {
     "color": {
-      "background": "var:preset|color|base",
-      "text": "var:preset|color|contrast"
+      "background": "var(--wp--custom--color--background)",
+      "text": "var(--wp--custom--color--text)"
     },
     "elements": {
       "button": {
@@ -202,8 +216,8 @@
           "radius": "var(--wp--custom--radius--pill)"
         },
         "color": {
-          "background": "var:preset|color|contrast",
-          "text": "var:preset|color|base"
+          "background": "var(--wp--custom--color--button-background)",
+          "text": "var(--wp--custom--color--button-text)"
         },
         "spacing": {
           "padding": {
@@ -230,7 +244,7 @@
       },
       "link": {
         "color": {
-          "text": "var:preset|color|accent-strong"
+          "text": "var(--wp--custom--color--accent-strong)"
         },
         "typography": {
           "textDecoration": "none"
@@ -275,7 +289,7 @@
       },
       "core/post-date": {
         "color": {
-          "text": "var:preset|color|muted"
+          "text": "var(--wp--custom--color--muted)"
         },
         "typography": {
           "fontSize": "var:preset|font-size|small",
@@ -290,7 +304,7 @@
       },
       "core/post-terms": {
         "color": {
-          "text": "var:preset|color|muted"
+          "text": "var(--wp--custom--color--muted)"
         },
         "typography": {
           "fontSize": "var:preset|font-size|small",
@@ -301,11 +315,11 @@
       "core/pullquote": {
         "border": {
           "top": {
-            "color": "var:preset|color|accent",
+            "color": "var(--wp--custom--color--accent)",
             "width": "2px"
           },
           "bottom": {
-            "color": "var:preset|color|accent",
+            "color": "var(--wp--custom--color--accent)",
             "width": "2px"
           }
         },

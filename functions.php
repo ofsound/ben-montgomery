@@ -5,7 +5,39 @@ if ( ! defined( 'BEN_MONTGOMERY_THEME_DIR' ) ) {
 	define( 'BEN_MONTGOMERY_THEME_DIR', __DIR__ );
 }
 
+if ( ! defined( 'BEN_MONTGOMERY_THEME_URI' ) ) {
+	define( 'BEN_MONTGOMERY_THEME_URI', get_stylesheet_directory_uri() );
+}
+
 require_once BEN_MONTGOMERY_THEME_DIR . '/inc/class-ben-montgomery-music-page.php';
+
+/**
+ * Emits the stored or system-resolved theme preference before CSS paints.
+ */
+function ben_montgomery_print_theme_bootstrap(): void {
+	?>
+	<script>
+		(function () {
+			var storageKey = 'bm-theme-preference';
+			var root = document.documentElement;
+			var preferredTheme = null;
+
+			try {
+				preferredTheme = window.localStorage.getItem(storageKey);
+			} catch (error) {
+				preferredTheme = null;
+			}
+
+			if (preferredTheme !== 'light' && preferredTheme !== 'dark') {
+				preferredTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+			}
+
+			root.dataset.theme = preferredTheme;
+			root.style.colorScheme = preferredTheme;
+		}());
+	</script>
+	<?php
+}
 
 add_action(
 	'after_setup_theme',
@@ -31,6 +63,23 @@ add_action(
 				'label'       => __( 'Ben Montgomery Blog', 'ben-montgomery' ),
 				'description' => __( 'Reusable blog and archive sections for the Ben Montgomery site.', 'ben-montgomery' ),
 			)
+		);
+	}
+);
+
+add_action( 'wp_head', 'ben_montgomery_print_theme_bootstrap', 0 );
+
+add_action(
+	'wp_enqueue_scripts',
+	static function (): void {
+		$script_path = BEN_MONTGOMERY_THEME_DIR . '/assets/js/theme-toggle.js';
+
+		wp_enqueue_script(
+			'ben-montgomery-theme-toggle',
+			BEN_MONTGOMERY_THEME_URI . '/assets/js/theme-toggle.js',
+			array(),
+			file_exists( $script_path ) ? (string) filemtime( $script_path ) : null,
+			true
 		);
 	}
 );

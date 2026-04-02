@@ -8,13 +8,24 @@
     </div>
     <!-- /wp:group -->
 
-    <!-- wp:navigation {"overlayMenu":"mobile","layout":{"type":"flex","justifyContent":"right"}} -->
-    <!-- wp:navigation-link {"label":"Home","url":"/","kind":"custom","isTopLevelLink":true} /-->
-    <!-- wp:navigation-link {"label":"Music","url":"/music/","kind":"custom","isTopLevelLink":true} /-->
-    <!-- wp:navigation-link {"label":"Blog","url":"/blog/","kind":"custom","isTopLevelLink":true} /-->
-    <!-- wp:navigation-link {"label":"About","url":"/about/","kind":"custom","isTopLevelLink":true} /-->
-    <!-- wp:navigation-link {"label":"Contact","url":"/contact/","kind":"custom","isTopLevelLink":true} /-->
-    <!-- /wp:navigation -->
+    <!-- wp:group {"layout":{"type":"flex","justifyContent":"right","flexWrap":"wrap","verticalAlignment":"center"}} -->
+    <div class="wp-block-group">
+      <!-- wp:navigation {"overlayMenu":"mobile","layout":{"type":"flex","justifyContent":"right"}} -->
+      <!-- wp:navigation-link {"label":"Home","url":"/","kind":"custom","isTopLevelLink":true} /-->
+      <!-- wp:navigation-link {"label":"Music","url":"/music/","kind":"custom","isTopLevelLink":true} /-->
+      <!-- wp:navigation-link {"label":"Blog","url":"/blog/","kind":"custom","isTopLevelLink":true} /-->
+      <!-- wp:navigation-link {"label":"About","url":"/about/","kind":"custom","isTopLevelLink":true} /-->
+      <!-- wp:navigation-link {"label":"Contact","url":"/contact/","kind":"custom","isTopLevelLink":true} /-->
+      <!-- /wp:navigation -->
+
+      <!-- wp:html -->
+      <button class="bm-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch color theme">
+        <span class="bm-theme-toggle__indicator" aria-hidden="true"></span>
+        <span data-theme-toggle-label>Dark mode</span>
+      </button>
+      <!-- /wp:html -->
+    </div>
+    <!-- /wp:group -->
   </div>
   <!-- /wp:group -->
 </div>

@@ -14,7 +14,86 @@ Tags: full-site-editing, block-patterns, custom-colors, custom-logo, editor-styl
 */
 
 :root {
-  --bm-shadow: 0 20px 45px rgba(28, 27, 25, 0.08);
+  color-scheme: light dark;
+}
+
+body {
+  --bm-color-background: var(--wp--custom--color--background);
+  --bm-color-surface: var(--wp--custom--color--surface);
+  --bm-color-text: var(--wp--custom--color--text);
+  --bm-color-muted: var(--wp--custom--color--muted);
+  --bm-color-border: var(--wp--custom--color--border);
+  --bm-color-accent: var(--wp--custom--color--accent);
+  --bm-color-accent-strong: var(--wp--custom--color--accent-strong);
+  --bm-color-accent-soft: var(--wp--custom--color--accent-soft);
+  --bm-color-button-background: var(--wp--custom--color--button-background);
+  --bm-color-button-text: var(--wp--custom--color--button-text);
+  --bm-shadow: 0 20px 45px var(--wp--custom--color--shadow);
+  --bm-shadow-hover: 0 28px 55px var(--wp--custom--color--shadow-hover);
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+:root[data-theme="light"] body {
+  --wp--preset--color--base: #f8f3ea;
+  --wp--preset--color--canvas: #ffffff;
+  --wp--preset--color--contrast: #1c1b19;
+  --wp--preset--color--muted: #5d5a52;
+  --wp--preset--color--border: #cfc3b0;
+  --wp--preset--color--accent: #b85c38;
+  --wp--preset--color--accent-strong: #224d66;
+  --wp--preset--color--accent-soft: #d9ccb7;
+  --wp--custom--color--background: #f8f3ea;
+  --wp--custom--color--surface: #ffffff;
+  --wp--custom--color--text: #1c1b19;
+  --wp--custom--color--muted: #5d5a52;
+  --wp--custom--color--border: #cfc3b0;
+  --wp--custom--color--accent: #b85c38;
+  --wp--custom--color--accent-strong: #224d66;
+  --wp--custom--color--accent-soft: #d9ccb7;
+  --wp--custom--color--button-background: #1c1b19;
+  --wp--custom--color--button-text: #f8f3ea;
+  --wp--custom--color--shadow: rgba(28, 27, 25, 0.08);
+  --wp--custom--color--shadow-hover: rgba(28, 27, 25, 0.12);
+}
+
+:root[data-theme="dark"] body {
+  --wp--preset--color--base: #111417;
+  --wp--preset--color--canvas: #1a1e22;
+  --wp--preset--color--contrast: #f4ede2;
+  --wp--preset--color--muted: #b7ab98;
+  --wp--preset--color--border: #4f5861;
+  --wp--preset--color--accent: #f28e63;
+  --wp--preset--color--accent-strong: #8fc8ea;
+  --wp--preset--color--accent-soft: #2a333b;
+  --wp--custom--color--background: #111417;
+  --wp--custom--color--surface: #1a1e22;
+  --wp--custom--color--text: #f4ede2;
+  --wp--custom--color--muted: #b7ab98;
+  --wp--custom--color--border: #4f5861;
+  --wp--custom--color--accent: #f28e63;
+  --wp--custom--color--accent-strong: #8fc8ea;
+  --wp--custom--color--accent-soft: #2a333b;
+  --wp--custom--color--button-background: #f4ede2;
+  --wp--custom--color--button-text: #111417;
+  --wp--custom--color--shadow: rgba(0, 0, 0, 0.4);
+  --wp--custom--color--shadow-hover: rgba(0, 0, 0, 0.55);
+}
+
+body {
+  background: var(--bm-color-background);
+  color: var(--bm-color-text);
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    color 180ms ease;
 }
 
 html {
@@ -26,7 +105,7 @@ html {
 }
 
 .bm-section-label {
-  color: var(--wp--preset--color--muted);
+  color: var(--bm-color-muted);
   font-size: var(--wp--preset--font-size--small);
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -39,8 +118,8 @@ html {
 }
 
 .bm-post-card {
-  background: var(--wp--preset--color--canvas);
-  border: 1px solid var(--wp--preset--color--border);
+  background: var(--bm-color-surface);
+  border: 1px solid var(--bm-color-border);
   border-radius: var(--wp--custom--radius--card);
   box-shadow: var(--bm-shadow);
   height: 100%;
@@ -49,7 +128,7 @@ html {
 }
 
 .bm-post-card:hover {
-  box-shadow: 0 28px 55px rgba(28, 27, 25, 0.12);
+  box-shadow: var(--bm-shadow-hover);
   transform: translateY(-4px);
 }
 
@@ -59,18 +138,62 @@ html {
 }
 
 .bm-outline-surface {
-  background: color-mix(in srgb, var(--wp--preset--color--canvas) 78%, white);
-  border: 1px solid var(--wp--preset--color--border);
+  background: color-mix(in srgb, var(--bm-color-surface) 78%, var(--bm-color-background));
+  border: 1px solid var(--bm-color-border);
   border-radius: var(--wp--custom--radius--card);
 }
 
 .bm-newsletter-panel {
   background:
-    linear-gradient(135deg, rgba(184, 92, 56, 0.12), rgba(34, 77, 102, 0.1)),
-    var(--wp--preset--color--canvas);
-  border: 1px solid var(--wp--preset--color--border);
+    linear-gradient(135deg, color-mix(in srgb, var(--bm-color-accent) 18%, transparent), color-mix(in srgb, var(--bm-color-accent-strong) 14%, transparent)),
+    var(--bm-color-surface);
+  border: 1px solid var(--bm-color-border);
   border-radius: 1.75rem;
   box-shadow: var(--bm-shadow);
+}
+
+.bm-theme-toggle {
+  align-items: center;
+  appearance: none;
+  background: transparent;
+  border: 1px solid var(--bm-color-border);
+  border-radius: var(--wp--custom--radius--pill);
+  color: var(--bm-color-text);
+  cursor: pointer;
+  display: inline-flex;
+  font: inherit;
+  font-size: var(--wp--preset--font-size--small);
+  font-weight: 600;
+  gap: 0.7rem;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  min-height: 2.75rem;
+  padding: 0.8rem 1rem;
+  text-transform: uppercase;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.bm-theme-toggle:hover {
+  background: color-mix(in srgb, var(--bm-color-surface) 84%, var(--bm-color-accent-soft));
+  transform: translateY(-1px);
+}
+
+.bm-theme-toggle:focus-visible {
+  outline: 2px solid var(--bm-color-accent-strong);
+  outline-offset: 3px;
+}
+
+.bm-theme-toggle__indicator {
+  background: color-mix(in srgb, var(--bm-color-accent) 16%, transparent);
+  border: 1px solid color-mix(in srgb, var(--bm-color-accent) 40%, var(--bm-color-border));
+  border-radius: 999px;
+  display: block;
+  height: 0.9rem;
+  width: 0.9rem;
 }
 
 .bm-social-links .wp-social-link {
@@ -92,8 +215,8 @@ html {
 }
 
 .bm-music-card {
-  background: color-mix(in srgb, var(--wp--preset--color--canvas) 88%, white);
-  border: 1px solid var(--wp--preset--color--border);
+  background: color-mix(in srgb, var(--bm-color-surface) 88%, var(--bm-color-background));
+  border: 1px solid var(--bm-color-border);
   border-radius: var(--wp--custom--radius--card);
   overflow: hidden;
   box-shadow: var(--bm-shadow);
@@ -101,7 +224,7 @@ html {
 
 .bm-music-card__art {
   aspect-ratio: 1 / 1;
-  background: color-mix(in srgb, var(--wp--preset--color--accent-soft) 45%, white);
+  background: color-mix(in srgb, var(--bm-color-accent-soft) 45%, var(--bm-color-background));
 }
 
 .bm-music-card__art-link,
@@ -133,7 +256,7 @@ html {
 .bm-music-card__artist,
 .bm-music-card__date,
 .bm-music-empty {
-  color: var(--wp--preset--color--muted);
+  color: var(--bm-color-muted);
   margin: 0;
 }
 
@@ -159,6 +282,11 @@ html {
 }
 
 @media (max-width: 781px) {
+  .bm-theme-toggle {
+    justify-content: center;
+    width: 100%;
+  }
+
   .bm-post-card {
     border-radius: 1.15rem;
   }
