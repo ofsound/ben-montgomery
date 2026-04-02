@@ -145,6 +145,17 @@ a:hover {
   color: var(--bm-color-accent);
 }
 
+.wp-site-blocks {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.wp-site-blocks > main {
+  flex: 1 1 auto;
+}
+
 .wp-site-blocks > * + * {
   margin-block-start: 0;
 }
@@ -507,7 +518,7 @@ a:hover {
 .bm-music-grid {
   display: grid;
   gap: var(--wp--preset--spacing--50);
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .bm-music-card__art {

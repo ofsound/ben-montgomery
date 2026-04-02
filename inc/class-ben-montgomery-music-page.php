@@ -37,7 +37,6 @@ final class Ben_Montgomery_Music_Page {
 					$date        = isset( $release['release_date'] ) ? self::format_release_date( (string) $release['release_date'] ) : '';
 					$release_url = isset( $release['release_url'] ) ? esc_url( (string) $release['release_url'] ) : '';
 					$image_id    = isset( $release['image'] ) ? (int) $release['image'] : 0;
-
 					if ( '' === $title ) {
 						continue;
 					}
@@ -78,7 +77,33 @@ final class Ben_Montgomery_Music_Page {
 		</div>
 		<?php
 
-		return (string) ob_get_clean();
+		$html = (string) ob_get_clean();
+
+		return self::normalize_music_card_output( $html );
+	}
+
+	private static function normalize_music_card_output( string $html ): string {
+		$html = trim( $html );
+		if ( '' === $html ) {
+			return '';
+		}
+
+		$leading_br = preg_replace( '/^\s*<br\s*\/?>\s*/i', '', $html );
+		if ( is_string( $leading_br ) ) {
+			$html = $leading_br;
+		}
+
+		$trailing_br = preg_replace( '/\s*<br\s*\/?>\s*$/i', '', $html );
+		if ( is_string( $trailing_br ) ) {
+			$html = $trailing_br;
+		}
+
+		$collapsed = preg_replace( '/>\s+</u', '><', $html );
+		if ( is_string( $collapsed ) ) {
+			$html = $collapsed;
+		}
+
+		return $html;
 	}
 
 	private static function format_release_date( string $value ): string {

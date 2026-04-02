@@ -73,6 +73,13 @@ add_action(
 				'description' => __( 'Reusable blog and archive sections for the Ben Montgomery site.', 'ben-montgomery' ),
 			)
 		);
+
+		add_shortcode(
+			'bm_current_year',
+			static function (): string {
+				return esc_html( (string) wp_date( 'Y' ) );
+			}
+		);
 	}
 );
 
