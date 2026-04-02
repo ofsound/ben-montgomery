@@ -5,6 +5,8 @@ if ( ! defined( 'BEN_MONTGOMERY_THEME_DIR' ) ) {
 	define( 'BEN_MONTGOMERY_THEME_DIR', __DIR__ );
 }
 
+require_once BEN_MONTGOMERY_THEME_DIR . '/inc/class-ben-montgomery-music-page.php';
+
 add_action(
 	'after_setup_theme',
 	static function (): void {
@@ -48,6 +50,8 @@ add_filter(
 		return array_values( array_unique( $paths ) );
 	}
 );
+
+Ben_Montgomery_Music_Page::init();
 
 if ( defined( 'WP_CLI' ) && WP_CLI ) {
 	require_once BEN_MONTGOMERY_THEME_DIR . '/inc/class-ben-montgomery-site-editor-sync-service.php';

@@ -1,0 +1,150 @@
+{
+  "key": "group_bm_music_discography",
+  "title": "Music Discography",
+  "fields": [
+    {
+      "key": "field_bm_music_releases",
+      "label": "Releases",
+      "name": "music_releases",
+      "aria-label": "",
+      "type": "repeater",
+      "instructions": "Add releases in display order for the Music page. This repeater powers the /music template.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "collapsed": "",
+      "min": 0,
+      "max": 0,
+      "layout": "row",
+      "button_label": "Add release",
+      "rows_per_page": 20,
+      "sub_fields": [
+        {
+          "key": "field_bm_music_image",
+          "label": "Image",
+          "name": "image",
+          "aria-label": "",
+          "type": "image",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "20",
+            "class": "",
+            "id": ""
+          },
+          "return_format": "id",
+          "library": "all",
+          "min_width": "",
+          "min_height": "",
+          "min_size": "",
+          "max_width": "",
+          "max_height": "",
+          "max_size": "",
+          "mime_types": "",
+          "preview_size": "medium"
+        },
+        {
+          "key": "field_bm_music_album_title",
+          "label": "Album Title",
+          "name": "album_title",
+          "aria-label": "",
+          "type": "text",
+          "instructions": "",
+          "required": 1,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "25",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "maxlength": "",
+          "allow_in_bindings": 0,
+          "placeholder": "",
+          "prepend": "",
+          "append": ""
+        },
+        {
+          "key": "field_bm_music_artist",
+          "label": "Artist",
+          "name": "artist",
+          "aria-label": "",
+          "type": "text",
+          "instructions": "",
+          "required": 1,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "20",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "Ben Montgomery",
+          "maxlength": "",
+          "allow_in_bindings": 0,
+          "placeholder": "",
+          "prepend": "",
+          "append": ""
+        },
+        {
+          "key": "field_bm_music_release_date",
+          "label": "Release Date",
+          "name": "release_date",
+          "aria-label": "",
+          "type": "date_picker",
+          "instructions": "Store the first day of the release month. The front end displays month and year only.",
+          "required": 1,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "20",
+            "class": "",
+            "id": ""
+          },
+          "display_format": "F Y",
+          "return_format": "Ymd",
+          "first_day": 1
+        },
+        {
+          "key": "field_bm_music_release_url",
+          "label": "Release URL",
+          "name": "release_url",
+          "aria-label": "",
+          "type": "url",
+          "instructions": "Optional external URL for the release page.",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "15",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "placeholder": ""
+        }
+      ]
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "post_type",
+        "operator": "==",
+        "value": "page"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "acf_after_title",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "Structured release data for the Music page.",
+  "show_in_rest": 0,
+  "modified": 1775080800
+}

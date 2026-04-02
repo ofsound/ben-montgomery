@@ -85,13 +85,92 @@ html {
   min-height: 50vh;
 }
 
+.bm-music-grid {
+  display: grid;
+  gap: var(--wp--preset--spacing--50);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.bm-music-card {
+  background: color-mix(in srgb, var(--wp--preset--color--canvas) 88%, white);
+  border: 1px solid var(--wp--preset--color--border);
+  border-radius: var(--wp--custom--radius--card);
+  overflow: hidden;
+  box-shadow: var(--bm-shadow);
+}
+
+.bm-music-card__art {
+  aspect-ratio: 1 / 1;
+  background: color-mix(in srgb, var(--wp--preset--color--accent-soft) 45%, white);
+}
+
+.bm-music-card__art-link,
+.bm-music-card__title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.bm-music-card__image {
+  display: block;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.bm-music-card__body {
+  display: grid;
+  gap: 0.45rem;
+  padding: var(--wp--preset--spacing--40);
+}
+
+.bm-music-card__title {
+  font-family: var(--wp--preset--font-family--display);
+  font-size: clamp(1.35rem, 1.1rem + 0.5vw, 1.75rem);
+  line-height: 1.15;
+  margin: 0;
+}
+
+.bm-music-card__artist,
+.bm-music-card__date,
+.bm-music-empty {
+  color: var(--wp--preset--color--muted);
+  margin: 0;
+}
+
+.bm-music-card__artist {
+  font-size: var(--wp--preset--font-size--medium);
+}
+
+.bm-music-card__date {
+  font-size: var(--wp--preset--font-size--small);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
 .wp-block-search__inside-wrapper {
   border-radius: 999px;
   overflow: hidden;
 }
 
+@media (max-width: 1100px) {
+  .bm-music-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 781px) {
   .bm-post-card {
     border-radius: 1.15rem;
+  }
+
+  .bm-music-grid {
+    gap: var(--wp--preset--spacing--40);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .bm-music-grid {
+    grid-template-columns: minmax(0, 1fr);
   }
 }
