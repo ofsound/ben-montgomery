@@ -15,8 +15,8 @@
     <p class="has-text-align-center bm-section-label">Songs, essays, experiments, and the work behind them</p>
     <!-- /wp:paragraph -->
 
-    <!-- wp:heading {"textAlign":"center","level":1,"fontSize":"display"} -->
-    <h1 class="wp-block-heading has-text-align-center has-display-font-size">A home for new music, field notes, and ideas still in motion.</h1>
+    <!-- wp:heading {"textAlign":"center","level":1,"fontSize":"xx-large"} -->
+    <h1 class="wp-block-heading has-text-align-center has-xx-large-font-size">A home for new music, field notes, and ideas still in motion.</h1>
     <!-- /wp:heading -->
 
     <!-- wp:paragraph {"align":"center","fontSize":"large","textColor":"muted"} -->
