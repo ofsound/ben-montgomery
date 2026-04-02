@@ -12,7 +12,7 @@ if ( ! defined( 'BEN_MONTGOMERY_THEME_URI' ) ) {
 require_once BEN_MONTGOMERY_THEME_DIR . '/inc/class-ben-montgomery-music-page.php';
 
 function ben_montgomery_get_font_stylesheet_url(): string {
-	return 'https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap';
+	return 'https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&family=JetBrains+Mono:wght@400;500;600&family=Sora:wght@500;600;700&display=swap';
 }
 
 /**
