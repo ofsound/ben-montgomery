@@ -12,7 +12,7 @@
   <!-- wp:group {"className":"bm-hero__content","layout":{"type":"constrained"}} -->
   <div class="wp-block-group bm-hero__content">
     <!-- wp:paragraph {"align":"center","className":"bm-section-label"} -->
-    <p class="has-text-align-center bm-section-label">Essays, experiments, and the work behind them</p>
+    <p class="has-text-align-center bm-section-label">successes, missteps, and the work behind them</p>
     <!-- /wp:paragraph -->
 
     <!-- wp:heading {"textAlign":"center","level":1,"className":"bm-hero-title","fontSize":"xx-large","style":{"typography":{"lineHeight":"1.35"}}} -->
@@ -20,11 +20,11 @@
     <!-- /wp:heading -->
 
     <!-- wp:paragraph {"align":"center","fontSize":"medium","textColor":"muted"} -->
-    <p class="has-text-align-center has-muted-color has-text-color has-medium-font-size">Ben Montgomery shares writing, and creative systems,<br> with a showcase site built to stay sharp and easy to keep current.</p>
+    <p class="has-text-align-center has-muted-color has-text-color has-medium-font-size">Ben Montgomery shares writing, and creative systems,<br>a showcase built to stay sharp, easy to keep current.</p>
     <!-- /wp:paragraph -->
 
-    <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"margin":{"top":"var:preset|spacing|50"}}}} -->
-    <div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--50)">
+    <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"margin":{"top":"var:preset|spacing|60"}}}} -->
+    <div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--60)">
       <!-- wp:button {"backgroundColor":"contrast","textColor":"base"} -->
       <div class="wp-block-button"><a class="wp-block-button__link has-base-color has-contrast-background-color has-text-color has-background wp-element-button" href="/blog/">All Articles</a></div>
       <!-- /wp:button -->
