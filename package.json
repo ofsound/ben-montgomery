@@ -14,12 +14,18 @@
     "wp:seed": "./scripts/seed-content.sh",
     "wp:seed:music": "./scripts/seed-music-page.sh",
     "wp:sync-site-editor": "./scripts/sync-site-editor.sh",
+    "backup": "./bin/wp-local ai1wm backup",
     "lint": "npm run lint:php && npm run lint:theme-json",
     "lint:php": "php -l functions.php && php -l inc/class-ben-montgomery-music-page.php && php -l inc/class-ben-montgomery-site-editor-sync-service.php && php -l inc/class-ben-montgomery-site-editor-sync-command.php && php -l scripts/seed-music-page.php && php -l tools/wordpress-mcp-adapter-loader/wordpress-mcp-adapter-loader.php && php -l tools/wordpress-mcp-adapter-loader/includes/class-ben-montgomery-mcp-abilities.php",
     "lint:theme-json": "node -e \"JSON.parse(require('node:fs').readFileSync('theme.json', 'utf8'))\"",
     "verify:agentic": "./scripts/verify-agentic-flow.sh",
     "check": "npm run lint && npm run verify:agentic",
-    "verify": "npm run check"
+    "verify": "npm run check",
+    "backup:ftp-test": "./scripts/test-ftp-connection.sh",
+    "upload:ftp": "./scripts/upload-backup-ftp.sh",
+    "upload": "npm run backup && npm run upload:ftp",
+    "backup:upload": "npm run upload:ftp",
+    "backup:publish": "npm run upload"
   },
   "devDependencies": {
     "@wp-playground/cli": "^3.1.15",
