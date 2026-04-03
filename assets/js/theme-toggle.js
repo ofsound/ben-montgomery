@@ -54,12 +54,6 @@
     });
   }
 
-  function updateHeaderState() {
-    document.querySelectorAll(".bm-site-header").forEach(function (header) {
-      header.classList.toggle("is-scrolled", window.scrollY > 8);
-    });
-  }
-
   function handleToggleClick(event) {
     if (event) {
       event.preventDefault();
@@ -73,7 +67,6 @@
 
   function initThemeUi() {
     applyTheme(getResolvedTheme());
-    updateHeaderState();
 
     getToggles().forEach(function (toggle) {
       if (toggle.dataset.themeToggleBound === "true") {
@@ -88,8 +81,6 @@
       });
       toggle.dataset.themeToggleBound = "true";
     });
-
-    window.addEventListener("scroll", updateHeaderState, {passive: true});
   }
 
   if (document.readyState === "loading") {

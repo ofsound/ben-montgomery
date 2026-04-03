@@ -15,18 +15,18 @@
     <p class="has-text-align-center bm-section-label">Essays, experiments, and the work behind them</p>
     <!-- /wp:paragraph -->
 
-    <!-- wp:heading {"textAlign":"center","level":1,"fontSize":"xx-large"} -->
-    <h1 class="wp-block-heading has-text-align-center has-xx-large-font-size">One stop shop for articles and experiments.</h1>
+    <!-- wp:heading {"textAlign":"center","level":1,"className":"bm-hero-title","fontSize":"xx-large","style":{"typography":{"lineHeight":"1.35"}}} -->
+    <h1 class="wp-block-heading bm-hero-title has-text-align-center has-xx-large-font-size" style="line-height:1.1">One stop shop for articles and experiments.</h1>
     <!-- /wp:heading -->
 
     <!-- wp:paragraph {"align":"center","fontSize":"medium","textColor":"muted"} -->
-    <p class="has-text-align-center has-muted-color has-text-color has-medium-font-size">Ben Montgomery shares writing, and creative systems in public, with a site built to stay sharp, personal, and easy to keep current.</p>
+    <p class="has-text-align-center has-muted-color has-text-color has-medium-font-size">Ben Montgomery shares writing, and creative systems,<br> with a showcase site built to stay sharp and easy to keep current.</p>
     <!-- /wp:paragraph -->
 
     <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"margin":{"top":"var:preset|spacing|50"}}}} -->
     <div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--50)">
       <!-- wp:button {"backgroundColor":"contrast","textColor":"base"} -->
-      <div class="wp-block-button"><a class="wp-block-button__link has-base-color has-contrast-background-color has-text-color has-background wp-element-button" href="/music">All Articles</a></div>
+      <div class="wp-block-button"><a class="wp-block-button__link has-base-color has-contrast-background-color has-text-color has-background wp-element-button" href="/blog/">All Articles</a></div>
       <!-- /wp:button -->
 
       
