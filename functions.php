@@ -157,6 +157,7 @@ add_filter(
 	static function ( $exclude_filters ) {
 		$exclude_filters[] = BEN_MONTGOMERY_THEME_DIR . '/node_modules';
 		$exclude_filters[] = BEN_MONTGOMERY_THEME_DIR . '/tools/wordpress-mcp-adapter-loader';
+		$exclude_filters[] = BEN_MONTGOMERY_THEME_DIR . '/.env';
 		return $exclude_filters;
 	}
 );
