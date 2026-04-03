@@ -32,9 +32,9 @@ body {
   --bm-glass-fill-strong: color-mix(in srgb, var(--bm-color-surface) 88%, transparent);
   --bm-glass-border: color-mix(in srgb, var(--bm-color-border) 44%, transparent);
   --bm-glass-highlight: color-mix(in srgb, white 70%, transparent);
-  --bm-shadow: 0 24px 60px var(--wp--custom--color--shadow);
-  --bm-shadow-hover: 0 34px 72px var(--wp--custom--color--shadow-hover);
-  --bm-shadow-soft: 0 18px 42px color-mix(in srgb, var(--wp--custom--color--shadow) 78%, transparent);
+  --bm-shadow: 0 3px 4px color-mix(in srgb, var(--wp--custom--color--shadow) 58%, transparent);
+  --bm-shadow-hover: 0 5px 8px color-mix(in srgb, var(--wp--custom--color--shadow) 70%, transparent);
+  --bm-shadow-soft: 0 3px 5px color-mix(in srgb, var(--wp--custom--color--shadow) 78%, transparent);
   --bm-header-background: color-mix(in srgb, var(--bm-color-surface) 74%, transparent);
   --bm-header-background-scrolled: color-mix(in srgb, var(--bm-color-surface) 90%, transparent);
   --bm-ring: color-mix(in srgb, var(--bm-color-accent-strong) 72%, white);
@@ -318,7 +318,7 @@ a:hover {
   background: var(--bm-header-background);
   border: 1px solid transparent;
   border-radius: calc(var(--wp--custom--radius--card) + 0.2rem);
-  box-shadow: 0 12px 32px color-mix(in srgb, var(--wp--custom--color--shadow) 88%, transparent);
+  box-shadow: 0 6px 10px color-mix(in srgb, var(--wp--custom--color--shadow) 88%, transparent);
   padding: 0.95rem 1.2rem;
   transition:
     background-color 180ms ease,
@@ -360,6 +360,7 @@ a:hover {
   background: color-mix(in srgb, var(--bm-color-surface) 72%, transparent);
   border: 1px solid var(--bm-glass-border);
   border-radius: 999px;
+  box-shadow: none;
   box-sizing: border-box;
   color: transparent;
   cursor: pointer;
@@ -370,6 +371,7 @@ a:hover {
   padding: 0;
   position: relative;
   text-indent: -9999px;
+  transform: none;
   transition:
     background-color 180ms ease,
     border-color 180ms ease,
@@ -380,20 +382,21 @@ a:hover {
 
 .bm-theme-toggle .wp-block-button__link:hover {
   background: color-mix(in srgb, var(--bm-color-accent-soft) 78%, var(--bm-color-surface));
-  box-shadow: var(--bm-shadow-soft);
+  box-shadow: none;
   transform: none;
 }
 
 .bm-theme-toggle .wp-block-button__link:focus-visible {
   outline: 2px solid var(--bm-ring);
   outline-offset: 3px;
+  box-shadow: none;
 }
 
 .bm-theme-toggle .wp-block-button__link::before {
   align-items: center;
   background: color-mix(in srgb, var(--bm-color-surface) 92%, var(--bm-color-text));
   border-radius: 999px;
-  box-shadow: 0 1px 2px color-mix(in srgb, var(--wp--custom--color--shadow) 55%, transparent);
+  box-shadow: none;
   bottom: 2px;
   color: var(--bm-color-text);
   content: "☀";
@@ -406,7 +409,6 @@ a:hover {
   top: 2px;
   transition:
     background-color 180ms ease,
-    box-shadow 180ms ease,
     color 180ms ease,
     left 180ms ease;
   width: calc(50% - 3px);
@@ -610,6 +612,14 @@ body.admin-bar.home .wp-site-blocks main > .bm-hero:first-child {
 .wp-element-button:hover {
   box-shadow: var(--bm-shadow);
   transform: scale(1.01);
+}
+
+/* Strip global button elevation on header theme toggle (.wp-element-button is defined above). */
+.bm-theme-toggle .wp-block-button__link.wp-element-button,
+.bm-theme-toggle .wp-block-button__link.wp-element-button:hover,
+.bm-theme-toggle .wp-block-button__link.wp-element-button:focus-visible {
+  box-shadow: none;
+  transform: none;
 }
 
 .wp-block-button.is-style-outline .wp-element-button {

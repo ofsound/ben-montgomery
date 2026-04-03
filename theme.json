@@ -357,7 +357,7 @@
         "typography": {
           "fontFamily": "var:preset|font-family|display",
           "fontSize": "1.5rem",
-          "letterSpacing": "-0.04em"
+          "letterSpacing": ".01em"
         }
       }
     }
