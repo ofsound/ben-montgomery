@@ -411,6 +411,15 @@ a:hover {
   color: var(--bm-color-accent);
 }
 
+/* Mobile overlay: core forces #fff / #000; use the same surface + text tokens as the rest of the theme. */
+.bm-site-header .wp-block-navigation:not(.has-background) .wp-block-navigation__responsive-container.is-menu-open {
+  background-color: var(--bm-color-surface);
+}
+
+.bm-site-header .wp-block-navigation:not(.has-text-color) .wp-block-navigation__responsive-container.is-menu-open {
+  color: var(--bm-color-text);
+}
+
 .bm-theme-toggle {
   display: inline-flex;
   align-items: center;
@@ -718,21 +727,24 @@ body.admin-bar.home .wp-site-blocks main > .bm-hero:first-child {
   }
 }
 
-@media (max-width: 781px) {
-  .bm-site-header {
-    padding-top: 0.6rem;
+/*
+ * Header nav must stay aligned with core Navigation responsive rules
+ * (overlay + hamburger use 600px in wp-includes/blocks/navigation/style.css).
+ * Do not style .wp-block-navigation__responsive-container-open between 600–781px:
+ * core hides the button there; forcing display:flex made both hamburger and inline links visible.
+ */
+@media (min-width: 600px) {
+  .bm-site-header .wp-block-navigation .bm-theme-toggle--overlay {
+    display: none !important;
   }
+}
 
-  .bm-site-header__bar {
-    padding: 0.85rem 0.95rem;
-  }
-
+@media (max-width: 599px) {
   .bm-site-header .wp-block-navigation__responsive-container-open {
     align-items: center;
     border: 1px solid var(--bm-glass-border);
     border-radius: 999px;
     box-sizing: border-box;
-    display: flex;
     justify-content: center;
     line-height: 1;
     min-height: 2.75rem;
@@ -744,6 +756,54 @@ body.admin-bar.home .wp-site-blocks main > .bm-hero:first-child {
     display: block;
     flex-shrink: 0;
     margin: 0;
+  }
+
+  /* Header-row toggle hidden on mobile; duplicate lives inside Navigation (overlay DOM + focus trap). */
+  .bm-site-header .bm-theme-toggle--header {
+    display: none !important;
+  }
+
+  /* Stretch modal column so margin-top:auto pins overlay toggle to the bottom. */
+  .bm-site-header .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-close {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    min-height: 0;
+  }
+
+  .bm-site-header .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-dialog {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    min-height: 0;
+  }
+
+  .bm-site-header .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content {
+    flex: 1 1 auto;
+    min-height: 0;
+    padding-bottom: max(1rem, env(safe-area-inset-bottom, 0px));
+  }
+
+  .bm-site-header .wp-block-navigation__responsive-container.is-menu-open .bm-theme-toggle--overlay {
+    margin-top: auto;
+    padding-top: var(--wp--preset--spacing--50, 1.5rem);
+    width: 100%;
+  }
+
+  .bm-site-header .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .wp-block-navigation-item__content {
+    font-size: var(--wp--preset--font-size--large);
+    line-height: 1.35;
+    padding-block: 0.65rem;
+  }
+}
+
+@media (max-width: 781px) {
+  .bm-site-header {
+    padding-top: 0.6rem;
+  }
+
+  .bm-site-header__bar {
+    padding: 0.85rem 0.95rem;
   }
 
   .bm-music-grid {

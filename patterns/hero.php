@@ -20,7 +20,7 @@
     <!-- /wp:heading -->
 
     <!-- wp:paragraph {"align":"center","fontSize":"medium","textColor":"muted"} -->
-    <p class="has-text-align-center has-muted-color has-text-color has-medium-font-size">Ben Montgomery shares writing, and creative systems,<br>a showcase built to stay sharp, easy to keep current.</p>
+    <p class="has-text-align-center has-muted-color has-text-color has-medium-font-size">Ben Montgomery shares writing and creative systems,<br>a showcase built to stay sharp, easy to keep current.</p>
     <!-- /wp:paragraph -->
 
     <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"margin":{"top":"var:preset|spacing|60"}}}} -->
