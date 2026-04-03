@@ -16,7 +16,7 @@
     <!-- /wp:paragraph -->
 
     <!-- wp:heading {"textAlign":"center","level":1,"fontSize":"xx-large"} -->
-    <h1 class="wp-block-heading has-text-align-center has-xx-large-font-size">A one stop shop for articles, essays and other words.</h1>
+    <h1 class="wp-block-heading has-text-align-center has-xx-large-font-size">One stop shop for articles and experiments.</h1>
     <!-- /wp:heading -->
 
     <!-- wp:paragraph {"align":"center","fontSize":"medium","textColor":"muted"} -->
