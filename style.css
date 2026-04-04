@@ -123,6 +123,28 @@ html {
   scroll-behavior: smooth;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  @supports (view-transition-name: none) {
+    @view-transition {
+      navigation: auto;
+    }
+
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+      animation-duration: 220ms;
+      animation-timing-function: ease;
+    }
+
+    ::view-transition-old(root) {
+      animation-name: bm-view-transition-fade-out;
+    }
+
+    ::view-transition-new(root) {
+      animation-name: bm-view-transition-fade-in;
+    }
+  }
+}
+
 body {
   background:
     radial-gradient(circle at top left, color-mix(in srgb, var(--bm-color-accent-soft) 85%, transparent) 0, transparent 34%), radial-gradient(circle at top right, color-mix(in srgb, var(--bm-color-accent-strong) 12%, transparent) 0, transparent 28%),
@@ -158,6 +180,30 @@ a:hover {
 
 .wp-site-blocks > * + * {
   margin-block-start: 0;
+}
+
+@keyframes bm-view-transition-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.65rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bm-view-transition-fade-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(-0.35rem);
+  }
 }
 
 .bm-section-label {
@@ -605,7 +651,6 @@ body.admin-bar.home .wp-site-blocks main > .bm-hero:first-child {
 
 .bm-feature-card,
 .bm-newsletter-panel,
-.bm-hero,
 .bm-post-card {
   animation: bm-fade-up 700ms ease both;
 }

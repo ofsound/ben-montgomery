@@ -184,19 +184,19 @@
         {
           "slug": "xx-large",
           "name": "2X Large",
-          "size": "3rem",
+          "size": "2.7rem",
           "fluid": {
             "min": "2.5rem",
-            "max": "4.5rem"
+            "max": "4.05rem"
           }
         },
         {
           "slug": "display",
           "name": "Display",
-          "size": "3.75rem",
+          "size": "3.375rem",
           "fluid": {
-            "min": "2.9rem",
-            "max": "5.4rem"
+            "min": "2.61rem",
+            "max": "4.86rem"
           }
         }
       ],
