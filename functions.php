@@ -127,6 +127,41 @@ add_action(
 	}
 );
 
+/**
+ * Wraps the post-card template part in a permalink <a> so the whole card is one block-level hit target (li > a > …).
+ */
+add_filter(
+	'render_block',
+	static function ( string $block_content, array $parsed_block, $wp_block = null ): string {
+		if ( ( $parsed_block['blockName'] ?? '' ) !== 'core/template-part' ) {
+			return $block_content;
+		}
+		if ( ( $parsed_block['attrs']['slug'] ?? '' ) !== 'post-card' ) {
+			return $block_content;
+		}
+
+		$post_id = 0;
+		if ( $wp_block instanceof WP_Block && ! empty( $wp_block->context['postId'] ) ) {
+			$post_id = (int) $wp_block->context['postId'];
+		} elseif ( function_exists( 'get_the_ID' ) && (int) get_the_ID() > 0 ) {
+			$post_id = (int) get_the_ID();
+		}
+
+		if ( $post_id < 1 ) {
+			return $block_content;
+		}
+
+		$url = get_permalink( $post_id );
+		if ( ! is_string( $url ) || $url === '' ) {
+			return $block_content;
+		}
+
+		return '<a class="bm-post-card__link" href="' . esc_url( $url ) . '">' . $block_content . '</a>';
+	},
+	10,
+	3
+);
+
 add_filter(
 	'acf/settings/save_json',
 	static function ( string $path ): string {
