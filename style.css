@@ -625,6 +625,11 @@ a:hover {
   justify-content: center;
 }
 
+/* Hero CTA: 15% stronger hover scale than global .wp-element-button (1% → 1.15% growth). */
+.bm-hero .wp-element-button:hover {
+  transform: scale(calc(1 + 0.01 * 1.15));
+}
+
 body.home .wp-site-blocks main > .bm-hero:first-child {
   --bm-home-hero-header-offset: 5.75rem;
   margin-top: calc(-1 * var(--bm-home-hero-header-offset));
